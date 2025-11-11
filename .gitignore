@@ -1,0 +1,257 @@
+# ----------------------------------------------------------------------------
+# Python
+# ----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# ----------------------------------------------------------------------------
+# IDE & Editors
+# ----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# ----------------------------------------------------------------------------
+# Model Weights & Data (Large Files)
+# ----------------------------------------------------------------------------
+# Model weights directory
+models/*.pth
+models/*.pt
+models/*.ckpt
+models/*.pkl
+models/*.bin
+models/*.safetensors
+models/*.h5
+models/*.pb
+
+# Keep directory structure but ignore large files
+!models/.gitkeep
+
+# Data directories
+data/input/*
+data/output/*
+!data/input/.gitkeep
+!data/output/.gitkeep
+
+# Temporary data
+*.npy
+*.npz
+*.hdf5
+
+# ----------------------------------------------------------------------------
+# External Repositories (Cloned Dependencies)
+# ----------------------------------------------------------------------------
+external/kmax-deeplab/
+external/fc-clip/
+external/detectron2/
+
+# Keep directory structure
+!external/.gitkeep
+
+# ----------------------------------------------------------------------------
+# Outputs & Results
+# ----------------------------------------------------------------------------
+# Generated scene graphs
+*.json
+!configs/*.json  # Keep config JSONs if any
+
+# Segmentation visualizations
+*_seg.jpg
+*_seg.png
+*_kmax_seg.*
+*_fcclip_seg.*
+
+# Results and logs
+results/
+logs/
+*.log
+
+# Tensorboard
+runs/
+events.out.tfevents.*
+
+# ----------------------------------------------------------------------------
+# System & Environment
+# ----------------------------------------------------------------------------
+.env
+.env.local
+*.local
+
+# API keys (safety)
+*api_key*
+*secret*
+!configs/config.yaml  # Keep config template
+
+# ----------------------------------------------------------------------------
+# Conda & Package Managers
+# ----------------------------------------------------------------------------
+*.conda
+.conda/
+conda-meta/
+
+# ----------------------------------------------------------------------------
+# Temporary Files
+# ----------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+
+# ----------------------------------------------------------------------------
+# Documentation Build
+# ----------------------------------------------------------------------------
+docs/_build/
+docs/.buildinfo
+site/
+
+# ----------------------------------------------------------------------------
+# macOS
+# ----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ----------------------------------------------------------------------------
+# Windows
+# ----------------------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ----------------------------------------------------------------------------
+# Linux
+# ----------------------------------------------------------------------------
+*~
+.directory
+.Trash-*
+
+# ----------------------------------------------------------------------------
+# VLLM Cache
+# ----------------------------------------------------------------------------
+.cache/
+.vllm/
+ray_results/
+/tmp/ray/
+
+# ----------------------------------------------------------------------------
+# Checkpoints & Experiments
+# ----------------------------------------------------------------------------
+checkpoints/
+experiments/
+wandb/
+mlruns/
+
+# ----------------------------------------------------------------------------
+# Compiled Extensions
+# ----------------------------------------------------------------------------
+*.o
+*.so
+*.dylib
+*.dll
+
+# ----------------------------------------------------------------------------
+# Archive Files
+# ----------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# ----------------------------------------------------------------------------
+# Keep These Files
+# ----------------------------------------------------------------------------
+# Explicitly keep important files that might match patterns above
+!README.md
+!requirements.txt
+!setup.py
+!configs/config.yaml
+!examples/*.py
+!src/**/*.py
+!main.py
+
+# ----------------------------------------------------------------------------
+# Project-Specific
+# ----------------------------------------------------------------------------
+# Custom ignores for this project
+debug/
+scratch/
+notes.txt
+TODO.txt
+
+# Large image datasets
+*.zip
+dataset/
+images/
+
+# Ray distributed computing
+/tmp/
+.ray/
+
+# HuggingFace cache
+.cache/huggingface/
+~/.cache/huggingface/

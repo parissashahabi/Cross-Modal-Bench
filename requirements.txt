@@ -1,0 +1,16 @@
+# Core dependencies
+openai>=1.0.0
+pyyaml>=6.0
+pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Deep learning (PyTorch - adjust version as needed for your CUDA setup)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# For kMaX-DeepLab (detectron2 based)
+# Note: detectron2 must be installed separately - see installation guide
+
+# Logging and utilities
+tqdm>=4.65.0

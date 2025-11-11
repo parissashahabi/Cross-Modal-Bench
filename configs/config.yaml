@@ -1,0 +1,77 @@
+# ----------------------------------------------------------------------------
+# Segmentation Model
+# ----------------------------------------------------------------------------
+segmentation:
+  # Model type: 'kmax' or 'fcclip'
+  model: 'kmax'
+  
+  # Paths
+  kmax_path: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/external/kmax-deeplab'
+  fcclip_path: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/external/fc-clip'
+  
+  # Model configs (automatically selected based on 'model' above)
+  # kMaX config
+  kmax_config_file: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/external/kmax-deeplab/configs/coco/panoptic_segmentation/kmax_r50.yaml'
+  kmax_weights: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/models/kmax_r50.pth'
+  
+  # FC-CLIP config
+  fcclip_config_file: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/external/fc-clip/configs/coco/panoptic-segmentation/fcclip/fcclip_convnext_large_eval_ade20k.yaml'
+  fcclip_weights: '/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/models/fcclip_cocopan.pth'
+  
+  # Output directory
+  output_dir: './data/output'
+  
+  # GPU settings
+  use_cuda: true
+
+# ----------------------------------------------------------------------------
+# Vision Language Model
+# ----------------------------------------------------------------------------
+vlm:
+  # VLM type: 'vllm' or 'gpt4o'
+  type: 'vllm'
+  
+  # VLLM settings (used when type='vllm')
+  vllm_model: 'Qwen/Qwen2-VL-7B-Instruct'
+  # Options: 'Qwen/Qwen2-VL-7B-Instruct'
+  #          'Qwen/Qwen3-VL-30B-A3B-Instruct'
+  tensor_parallel_size: 1
+  
+  # GPT-4o settings (used when type='gpt4o')
+  gpt4o_api_key: 'your-api-key-here'
+  gpt4o_model: 'gpt-4o'
+  
+  # Common settings
+  max_tokens: 2000
+
+# ----------------------------------------------------------------------------
+# General Settings
+# ----------------------------------------------------------------------------
+verbose: true
+
+data:
+  input_dir: './data/input'
+  output_dir: './data/output'
+
+# ============================================================================
+# Quick Configuration Examples:
+# ============================================================================
+#
+# Use kMaX + VLLM:
+#   segmentation.model: 'kmax'
+#   vlm.type: 'vllm'
+#
+# Use FC-CLIP + VLLM:
+#   segmentation.model: 'fcclip'
+#   vlm.type: 'vllm'
+#
+# Use kMaX + GPT-4o:
+#   segmentation.model: 'kmax'
+#   vlm.type: 'gpt4o'
+#   vlm.gpt4o_api_key: 'your-key'
+#
+# Use larger VLLM model:
+#   vlm.vllm_model: 'Qwen/Qwen3-VL-30B-A3B-Instruct'
+#   vlm.tensor_parallel_size: 4
+#
+# ============================================================================
