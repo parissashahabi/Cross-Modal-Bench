@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {
+      "id": "polizia_locale_car",
+      "object": "polizia_locale_car",
+      "description": null,
+      "attributes": {
+        "color": "purple",
+        "brand": "Fiat",
+        "model": "Panda",
+        "type": "police",
+        "registration_plate": "VONAME DI BERGAMO"
+      }
+    },
+    {
+      "id": "wall",
+      "object": "wall",
+      "description": null,
+      "attributes": {
+        "color": "gray"
+      }
+    },
+    {
+      "id": "door",
+      "object": "door",
+      "description": null,
+      "attributes": {
+        "color": "green"
+      }
+    },
+    {
+      "id": "window",
+      "object": "window",
+      "description": null,
+      "attributes": {
+        "color": "white"
+      }
+    },
+    {
+      "id": "pavement",
+      "object": "pavement",
+      "description": null,
+      "attributes": {
+        "color": "gray"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "subject": "polizia_locale_car",
+      "object": "wall",
+      "relation": "adjacent_to"
+    },
+    {
+      "subject": "polizia_locale_car",
+      "object": "door",
+      "relation": "adjacent_to"
+    },
+    {
+      "subject": "polizia_locale_car",
+      "object": "window",
+      "relation": "adjacent_to"
+    },
+    {
+      "subject": "polizia_locale_car",
+      "object": "pavement",
+      "relation": "parked_on"
+    }
+  ],
+  "metadata": {
+    "image_path": "data/input/generated.png",
+    "visualization_path": "data/output/generated_kmax_seg.jpg",
+    "model": "KMaxSegmentor"
+  }
+}

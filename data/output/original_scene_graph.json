@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "polizia-locale-car",
+      "object": "polizia-locale-car",
+      "description": null,
+      "attributes": {
+        "color": "white",
+        "brand": "polizia-locale",
+        "registration_number": "613",
+        "doors": "4",
+        "windows": "4"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "subject": "polizia-locale-car",
+      "object": "polizia-locale-car",
+      "relation": "part_of"
+    }
+  ],
+  "metadata": {
+    "image_path": "data/input/original.png",
+    "visualization_path": "data/output/original_kmax_seg.jpg",
+    "model": "KMaxSegmentor"
+  }
+}

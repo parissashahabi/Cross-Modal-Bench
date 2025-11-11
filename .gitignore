@@ -105,14 +105,14 @@ external/detectron2/
 # Outputs & Results
 # ----------------------------------------------------------------------------
 # Generated scene graphs
-*.json
-!configs/*.json  # Keep config JSONs if any
+# *.json
+# !configs/*.json  # Keep config JSONs if any
 
 # Segmentation visualizations
-*_seg.jpg
-*_seg.png
-*_kmax_seg.*
-*_fcclip_seg.*
+# *_seg.jpg
+# *_seg.png
+# *_kmax_seg.*
+# *_fcclip_seg.*
 
 # Results and logs
 results/
