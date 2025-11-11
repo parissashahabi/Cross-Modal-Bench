@@ -86,12 +86,6 @@ models/*.pb
 # Keep directory structure but ignore large files
 !models/.gitkeep
 
-# Data directories
-data/input/*
-data/output/*
-!data/input/.gitkeep
-!data/output/.gitkeep
-
 # Temporary data
 *.npy
 *.npz
