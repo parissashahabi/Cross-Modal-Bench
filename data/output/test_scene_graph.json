@@ -1,0 +1,82 @@
+{
+  "nodes": [
+    {
+      "id": "cat_1",
+      "object": "cat",
+      "description": null,
+      "attributes": {
+        "color": "pink"
+      }
+    },
+    {
+      "id": "cat_2",
+      "object": "cat",
+      "description": null,
+      "attributes": {
+        "color": "purple"
+      }
+    },
+    {
+      "id": "dog",
+      "object": "dog",
+      "description": null,
+      "attributes": {
+        "color": "cyan"
+      }
+    },
+    {
+      "id": "cabinet",
+      "object": "cabinet",
+      "description": null,
+      "attributes": {
+        "color": "green"
+      }
+    },
+    {
+      "id": "chair",
+      "object": "chair",
+      "description": null,
+      "attributes": {
+        "color": "brown"
+      }
+    },
+    {
+      "id": "blanket",
+      "object": "blanket",
+      "description": null,
+      "attributes": {
+        "color": "pink"
+      }
+    },
+    {
+      "id": "floor",
+      "object": "floor",
+      "description": null,
+      "attributes": {
+        "material": "wood"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "subject": "cat_1",
+      "object": "chair",
+      "relation": "on"
+    },
+    {
+      "subject": "cat_2",
+      "object": "chair",
+      "relation": "on"
+    },
+    {
+      "subject": "dog",
+      "object": "blanket",
+      "relation": "on"
+    }
+  ],
+  "metadata": {
+    "image_path": "/sc/home/parisa.shahabinejad/projects/master-project-2025/cross-modal-bench/data/input/test.jpg",
+    "visualization_path": "data/output/test_kmax_seg.jpg",
+    "model": "KMaxSegmentor"
+  }
+}

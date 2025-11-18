@@ -6,18 +6,66 @@
       "description": null,
       "attributes": {
         "color": "white",
-        "brand": "polizia-locale",
+        "brand": "Fiat",
+        "model": "Panda",
         "registration_number": "613",
-        "doors": "4",
-        "windows": "4"
+        "police_department": "Polizia Locale",
+        "location": "Comune di Bergamo"
+      }
+    },
+    {
+      "id": "building",
+      "object": "building",
+      "description": null,
+      "attributes": {
+        "color": "purple"
+      }
+    },
+    {
+      "id": "door",
+      "object": "door",
+      "description": null,
+      "attributes": {
+        "color": "green"
+      }
+    },
+    {
+      "id": "window",
+      "object": "window",
+      "description": null,
+      "attributes": {
+        "color": "clear"
+      }
+    },
+    {
+      "id": "wall",
+      "object": "wall",
+      "description": null,
+      "attributes": {
+        "color": "purple"
       }
     }
   ],
   "edges": [
     {
       "subject": "polizia-locale-car",
-      "object": "polizia-locale-car",
+      "object": "building",
+      "relation": "parked"
+    },
+    {
+      "subject": "polizia-locale-car",
+      "object": "door",
       "relation": "part_of"
+    },
+    {
+      "subject": "polizia-locale-car",
+      "object": "window",
+      "relation": "part_of"
+    },
+    {
+      "subject": "polizia-locale-car",
+      "object": "wall",
+      "relation": "parked"
     }
   ],
   "metadata": {

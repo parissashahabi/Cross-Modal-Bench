@@ -5,11 +5,12 @@
       "object": "polizia_locale_car",
       "description": null,
       "attributes": {
-        "color": "purple",
+        "color": "blue",
         "brand": "Fiat",
-        "model": "Panda",
-        "type": "police",
-        "registration_plate": "VONAME DI BERGAMO"
+        "type": "Panda",
+        "registration_plate": "YONAME DI BERGAMO",
+        "police_department": "Comune di Bergamo",
+        "police_unit": "Polizia Locale"
       }
     },
     {
@@ -37,11 +38,27 @@
       }
     },
     {
+      "id": "paper",
+      "object": "paper",
+      "description": null,
+      "attributes": {
+        "color": "white"
+      }
+    },
+    {
       "id": "pavement",
       "object": "pavement",
       "description": null,
       "attributes": {
-        "color": "gray"
+        "color": "red"
+      }
+    },
+    {
+      "id": "road",
+      "object": "road",
+      "description": null,
+      "attributes": {
+        "color": "red"
       }
     }
   ],
@@ -63,8 +80,18 @@
     },
     {
       "subject": "polizia_locale_car",
+      "object": "paper",
+      "relation": "adjacent_to"
+    },
+    {
+      "subject": "polizia_locale_car",
       "object": "pavement",
-      "relation": "parked_on"
+      "relation": "on"
+    },
+    {
+      "subject": "polizia_locale_car",
+      "object": "road",
+      "relation": "on"
     }
   ],
   "metadata": {
