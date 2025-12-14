@@ -1,0 +1,1 @@
+{"config": "./configs/table2/masks-loc-sem.json", "output": "/sc/home/anton.hackl/training_output/path/masks-loc-sem", "anno": "/sc/home/anton.hackl/psg_data/psg/psg.json", "img": "/sc/home/anton.hackl/psg_data/coco", "seg": "/sc/home/anton.hackl/psg_data/coco", "epochs": 60, "workers": 12, "model_state": null, "no_bpbar": false}

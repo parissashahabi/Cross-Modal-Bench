@@ -1,0 +1,93 @@
+{
+  "description": "Configuration for full scene graph generation and matching workflow",
+  "cluster": "sinai",
+  "user": "anton.hackl",
+  "process_mode": "both",
+  "_comment_process_mode": "Options: 'both' (process GT and PT), 'gt_only' (GT only), 'pt_only' (PT only)",
+  
+  "segmentation": {
+    "skip": false,
+    "method": "kmax",
+    "img_dir": "./datasets/",
+    "psg_meta": "./data/psg_metadata.json",
+    "seg_model": "facebook/mask2former-swin-large-coco-panoptic",
+    "workers": 2,
+    "_comment_method": "Options: 'mask2former' (default) or 'kmax' for kMaX-DeepLab",
+    "_comment_kmax": "kMaX-DeepLab requires separate environment and following settings:",
+    "kmax_env": "kmax_deeplab",
+    "kmax_script": "../psg_generation/generate_segmasks_kmax.py",
+    "kmax_path": "../kmax-deeplab",
+    "kmax_config": "../psg_generation/segmentation/config/kmax_convnext_large.yaml",
+    "kmax_weights": "./models/kmax_convnext_large.pth"
+  },
+  
+  "scene_graph_generation": {
+    "script": "../psg_generation/generate_sg.py",
+    "img_dir_gt": "./datasets/gt",
+    "img_dir_pt": "./datasets/pt",
+    "psg_meta": "./data/psg_metadata.json",
+    "model_dir": "./models/masks-loc-sem",
+    "top_k": 15,
+    "conda_env": "kmax_deeplab",
+    "process_separately": true,
+    "_comment_model": "Leave model_dir empty or null to skip inference (segmentation only)",
+    "_comment_env": "Uses kmax_deeplab conda environment with detectron2",
+    "_comment_split": "Set process_separately to true to process GT and PT separately"
+  },
+  
+  "graph_merging": {
+    "skip": false,
+    "merge_graph_script": "../psg_generation/graph_merge/merge_graph.py",
+    "merge_masks_script": "../psg_generation/graph_merge/merge_masks.py",
+    "merge_edges_script": "../psg_generation/graph_merge/merge_edges.py",
+    "padding": 10,
+    "agg": "mean",
+    "conda_env": "kmax_deeplab",
+    "_comment": "Merges overlapping bounding boxes into merged nodes before attribute generation",
+    "_comment_padding": "Padding in pixels to add to bounding boxes for overlap detection",
+    "_comment_agg": "Aggregation method for merging edge scores: 'mean' or 'max'",
+    "_comment_env": "Uses same conda environment as scene graph generation"
+  },
+  
+  "attribute_generation": {
+    "skip": false,
+    "script": "../psg_generation/attribute_generation/generate_attributes.py",
+    "img_dir": "./datasets",
+    "num_gpus": 4,
+    "batch_size": 8,
+    "conda_env": "attribute_generation",
+    "process_gt_pt_separately": true,
+    "mapping_json": "../psg_generation/attribute_generation/category_mapping.json",
+    "fake": true,
+    "_comment": "Generates structured object attributes using VLM with guided decoding",
+    "_comment_fake": "Set fake: true to generate test attributes without loading VLM model",
+    "_comment_env": "Uses attribute_generation conda environment with vLLM",
+    "_comment_setup": "Create env: conda env create -f ../psg_generation/attribute_generation/environment.yml",
+    "_comment_split": "Set process_gt_pt_separately to true to process GT and PT separately"
+  },
+  
+  "graph_matching": {
+    "skip": false,
+    "script": "../graph_matching/match_openpsg_graphs.py",
+    "model": "all-MiniLM-L6-v2",
+    "high_recall": true,
+    "conda_env": "graph-matching",
+    "_comment": "Hungarian algorithm for matching predicted and ground truth graphs",
+    "_comment_env": "Uses conda environment for graph matching with sentence-transformers"
+  },
+  
+  "visualization": {
+    "skip": false,
+    "script": "../graph_matching/visualize_matched_masks.py",
+    "psg_json": "./data/psg_metadata.json",
+    "coco_images": "./datasets/gt",
+    "panoptic_dir": "./1_segmentation_gt",
+    "pred_masks": "./5_matching/prediction_masks_from_scenegraph.pkl",
+    "conda_env": "graph-matching",
+    "_comment_pred_masks": "Set to path of prediction_masks.pkl if available",
+    "_comment_env": "Uses same conda environment as graph matching"
+  },
+  
+  "stop_on_error": true,
+  "_comment_stop_on_error": "Whether to stop workflow if a step fails"
+}
